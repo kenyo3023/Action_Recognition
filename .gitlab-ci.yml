@@ -1,0 +1,16 @@
+stages:
+    - test
+
+variables:
+    GIT_DEPTH: "3"
+
+test:
+    image: twmicrosheep/miniconda_py37:latest
+    script:
+        - apt-get update
+        - apt-get install -y python-dev pkg-config
+        - apt-get install -y libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libswresample-dev libavfilter-dev
+        - export PATH="$PATH:/root/.local/bin:/root/miniconda3/bin"
+        - echo $PATH
+        - make init
+        - make lint

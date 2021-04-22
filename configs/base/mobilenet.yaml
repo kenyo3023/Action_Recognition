@@ -1,0 +1,5 @@
+model:
+    class: mobilenet_v2
+    pretrained: True
+
+batch_size: 32

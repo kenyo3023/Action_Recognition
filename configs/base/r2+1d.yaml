@@ -1,0 +1,8 @@
+batch_size: 64
+frames_per_clip: 4
+output_type: video
+transform_size: 112
+
+model: 
+    class: r2plus1d_18
+    pretrained: True

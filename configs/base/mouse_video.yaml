@@ -1,0 +1,9 @@
+dataset_artifact: mouse_cropped:latest
+output_type: video
+batch_size: 16
+frames_per_clip: 16
+num_sample_per_clip: 1
+transform_size: 224
+
+extract_groom: True
+mix_clip: 0

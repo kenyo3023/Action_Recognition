@@ -1,0 +1,3 @@
+lr_scheduler:
+    class: ExponentialLR
+    gamma: 0.9975

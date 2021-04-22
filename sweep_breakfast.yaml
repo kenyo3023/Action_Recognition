@@ -1,0 +1,58 @@
+name: sweep
+program: run_sweep.py
+method: bayes
+metric:
+  goal: maximize
+  name: Valid/Accuracy
+parameters:
+  WS_model:
+    value: I3D
+  WS_model.num_classes:
+    value: 48
+  WS_model.dropout_prob:
+    value: 0.5
+  WS_model.state_dict_path:
+    value: action_recognition/models/i3d_weights/model_RGB_400.pth
+
+  WS_dataset_root:
+    value: ./data/breakfast
+  WS_output_type:
+    value: video
+  WS_split_by:
+    value: cv_0
+  WS_frames_per_clip:
+    values: [16, 32, 64]
+  # WS_batch_size:
+  #   value: 4
+  WS_frame_rate:
+    value: [3, 30]
+  WS_num_sample_per_clip:
+    value: 1
+
+  WS_random_seed:
+    value: 666
+
+  WS_samples_per_epoch:
+    value: 2048
+  WS_num_epochs:
+    value: 20
+  
+  WS_optimizer:
+    value: SGD
+  WS_optimizer.lr:
+    distribution: log_uniform
+    max: -2.3  # 0.1
+    min: -6.9  # 0.001
+  WS_optimizer.momentum:
+    value: 0.9
+  WS_optimizer.nesterov:
+    values: [true, false]
+  WS_optimizer.weight_decay:
+    value: 0.0005
+
+  WS_lr_scheduler:
+    value: ExponentialLR
+  WS_lr_scheduler.gamma:
+    distribution: log_uniform
+    max: 0  # 1
+    min: -0.05  # 0.9

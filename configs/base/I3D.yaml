@@ -1,0 +1,9 @@
+batch_size: 16
+frames_per_clip: 16
+output_type: video
+
+model: 
+    class: I3D
+    num_classes: 2
+    dropout_prob: 0.5
+    state_dict_path: action_recognition/models/i3d_weights/model_RGB_400.pth

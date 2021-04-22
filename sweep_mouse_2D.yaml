@@ -1,0 +1,44 @@
+name: Mouse_Cage_split_2D
+program: run_sweep.py
+method: bayes
+metric:
+  goal: maximize
+  # name: Validation/Macro_AVG_f1-score
+  name: Validation/Macro_AVG_recall
+  # name: Validation/Accuracy
+parameters:
+  WS_BASE:
+    value:
+      - configs/experiment.yaml
+      - configs/base/mouse.yaml
+      - configs/base/resnet101.yaml
+      - configs/base/balancecage.yaml
+      - configs/base/no_valid.yaml
+
+  WS_split_by:
+    value: cage_0
+
+  WS_random_seed:
+    value: 666
+
+  WS_optimizer:
+    value: Adam
+  WS_optimizer.lr:
+    distribution: log_uniform
+    max: -2.3  # 0.1
+    min: -11.5  # 0.00001
+  # WS_optimizer.momentum:
+  #   # value: 0.9
+  #   min: 0.6
+  #   max: 1.0
+  # WS_optimizer.nesterov:
+  #   values: [true, false]
+  # WS_optimizer.weight_decay:
+  #   value: 0.0005
+
+  WS_lr_scheduler:
+    value: ExponentialLR
+  WS_lr_scheduler.gamma:
+    distribution: uniform
+    max: 1
+    min: 0.9

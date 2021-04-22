@@ -1,0 +1,60 @@
+name: Mouse_cv_3D
+program: run_sweep_cv.py
+method: bayes
+metric:
+  goal: maximize
+  name: Testing.Macro AVG.recall
+parameters:
+  WS_BASE:
+    value:
+      - configs/experiment.yaml
+      - configs/base/mouse_video.yaml
+
+  WS_BASE_DATASET:
+    values:
+      - ""
+      - configs/base/origin10vid.yaml
+      - configs/base/fpvid.yaml
+      - configs/base/exclude2mouse.yaml
+
+  WS_BASE_MODEL:
+    values:
+      - configs/base/I3D.yaml
+      - configs/base/r2+1d.yaml
+
+  WS_BASE_BALANCE:
+    values:
+      - configs/base/balancecage.yaml
+      - configs/base/balancesrc.yaml
+      - configs/base/balancevideo.yaml
+
+  WS_BASE_VALID:
+    values:
+      - ""
+      - configs/base/no_valid.yaml
+
+  WS_random_seed:
+    value: 666
+
+  WS_optimizer:
+    # value: SGD
+    value: Adam
+  WS_optimizer.lr:
+    distribution: log_uniform
+    max: -2.3  # 0.1
+    min: -11.5  # 0.00001
+  # WS_optimizer.momentum:
+  #   # value: 0.9
+  #   min: 0.6
+  #   max: 1.0
+  # WS_optimizer.nesterov:
+  #   values: [true, false]
+  # WS_optimizer.weight_decay:
+  #   value: 0.0005
+
+  WS_lr_scheduler:
+    value: ExponentialLR
+  WS_lr_scheduler.gamma:
+    distribution: uniform
+    max: 1
+    min: 0.9

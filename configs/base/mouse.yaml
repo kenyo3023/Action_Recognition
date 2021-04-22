@@ -1,0 +1,8 @@
+dataset_artifact: mouse_cropped:latest
+output_type: random_frame
+
+frames_per_clip: 1
+num_sample_per_clip: 1
+extract_groom: True
+mix_clip: 0
+transform_size: 112

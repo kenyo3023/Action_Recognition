@@ -1,0 +1,30 @@
+train_sampler_config:
+    log_weight: False
+    balance_label: True
+    balance_clip: False
+    balance_src: False
+
+valid_sampler_config:
+    downsample: True
+    balance_label: False
+test_sampler_config:
+    downsample: True
+    balance_label: False
+
+valid_set_args: 
+    num_sample_per_clip: 1
+test_set_args:
+    num_sample_per_clip: 1
+
+num_epochs: 50
+samples_per_epoch: 2048
+
+random_seed: 666
+
+optimizer: 
+    class: Adam
+    lr: 0.001
+
+lr_scheduler:
+    class: ExponentialLR
+    gamma: 0.98

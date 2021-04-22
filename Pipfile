@@ -1,0 +1,34 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+pylint = "==2.4.4"
+mypy = "*"
+
+[packages]
+torch = "==1.4.0"
+torchvision = "==0.5.0"
+opencv-python = "*"
+numpy = "*"
+sklearn = "*"
+wandb = "==0.9.6"
+ipykernel = "*"
+pandas = "*"
+tqdm = "==4.33.0"
+tensorboard = "*"
+prettytable = "*"
+imblearn = "*"
+plotly = "*"
+av = "*"
+matplotlib = "*"
+seaborn = "*"
+ipywidgets = "*"
+jupyter = "*"
+jupyter-innotater = "*"
+scipy = "*"
+
+[requires]
+python_version = "3.7"

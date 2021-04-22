@@ -1,0 +1,21 @@
+batch_size: 16
+frames_per_clip: 16
+frame_rate: 1
+output_type: video
+
+dataset_root: ./data/breakfast
+
+valid_sampler_config:
+    downsample: False
+    balance_label: False
+test_sampler_config:
+    downsample: False
+    balance_label: False
+
+model: 
+    class: I3D
+    num_classes: 48
+    dropout_prob: 0.5
+    state_dict_path: action_recognition/models/i3d_weights/model_RGB_400.pth
+
+num_epochs: 30
